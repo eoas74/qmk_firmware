@@ -4,3 +4,5 @@
 ===
 
 A 36 key keyboard, basically a long Gherkin or a narrow Planck.
+
+![keymap](https://www.manja.se/misc/g5659.png)
