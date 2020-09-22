@@ -25,6 +25,10 @@ enum combos {
   B_N_LT
 };
 
+enum custom_keycodes {
+  KC_SHFT_ESC
+};
+
 const uint16_t PROGMEM q_w_esc_combo[] = { KC_Q, KC_W, COMBO_END};
 const uint16_t PROGMEM a_s_tab_combo[] = { KC_A, KC_S, COMBO_END};
 const uint16_t PROGMEM lbrc_rbrc_bspc_combo[] = { KC_LBRC, KC_RBRC, COMBO_END};
@@ -40,7 +44,7 @@ const uint16_t PROGMEM n_m_tt_combo[] = { KC_N, KC_M, COMBO_END};
 const uint16_t PROGMEM b_n_lt_combo[] = { KC_B, KC_N, COMBO_END};
 
 combo_t key_combos[COMBO_COUNT] = {
-  [Q_W_ESC] = COMBO(q_w_esc_combo, KC_ESC),
+  [Q_W_ESC] = COMBO(q_w_esc_combo, KC_SHFT_ESC),
   [A_S_TAB] = COMBO_ACTION(a_s_tab_combo),
   [LBRC_RBRC_BSPC] = COMBO_ACTION(lbrc_rbrc_bspc_combo),
   [QUOT_NUHS_ENT] = COMBO(quot_nuhs_ent_combo, KC_ENT),
@@ -66,6 +70,21 @@ static bool layer3tapped = false;
 
 void process_combo_event(uint8_t combo_index, bool pressed) {
   switch(combo_index) {
+    case Q_W_ESC:
+      if (pressed) {
+        if (IS_LAYER_ON(1)) {
+          register_code16(KC_GRV);
+        } else {
+          register_code16(KC_ESC);
+        }
+      } else {
+        if (IS_LAYER_ON(1)) {
+          unregister_code16(KC_GRV);
+        } else {
+          unregister_code16(KC_ESC);
+        }
+      }
+      break;
     case A_S_TAB:
       if (pressed) {
         if (my_lalt_flag) {
@@ -175,4 +194,26 @@ void process_combo_event(uint8_t combo_index, bool pressed) {
       }
       break;
   }
+}
+
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+  switch (keycode) {
+    case KC_SHFT_ESC:
+      if (record->event.pressed) {
+        if (IS_LAYER_ON(1)) {
+          register_code16(KC_GRV);
+        } else {
+          register_code16(KC_ESC);
+        }
+      } else {
+        if (IS_LAYER_ON(1)) {
+          unregister_code16(KC_GRV);
+        } else {
+          unregister_code16(KC_ESC);
+        }
+      }
+      return false;
+      break;
+  }
+  return true;
 }
