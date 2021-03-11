@@ -1,11 +1,11 @@
 #include QMK_KEYBOARD_H
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-        [0] = LAYOUT_ortho_3x12(KC_Q, KC_W, KC_E, KC_R, KC_T, KC_Y, KC_U, KC_I, KC_O, KC_P, KC_LBRC, KC_RBRC, KC_A, KC_S, KC_D, KC_F, KC_G, KC_H, KC_J, KC_K, KC_L, KC_SCLN, KC_QUOT, KC_NUHS, LSFT_T(KC_NUBS), KC_Z, KC_X, LT(4, KC_C), KC_V, KC_B, KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, KC_RSFT),
+        [0] = LAYOUT_ortho_3x12(KC_Q, KC_W, KC_E, KC_R, KC_T, KC_Y, KC_U, KC_I, KC_O, KC_P, KC_LBRC, KC_RBRC, KC_A, KC_S, KC_D, KC_F, KC_G, KC_H, KC_J, KC_K, KC_L, KC_SCLN, KC_QUOT, KC_NUHS, LSFT_T(KC_NUBS), KC_Z, KC_X, LT(4, KC_C), LT(4, KC_V), KC_B, KC_N, LT(4, KC_M), KC_COMM, KC_DOT, KC_SLSH, KC_RSFT),
         [1] = LAYOUT_ortho_3x12(KC_GRV, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_LEFT, KC_DOWN, KC_UP, KC_RGHT, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS),
         [2] = LAYOUT_ortho_3x12(KC_1, KC_2, KC_3, KC_4, KC_5, KC_6, KC_7, KC_8, KC_9, KC_0, KC_MINS, KC_EQL, KC_1, KC_2, KC_3, KC_4, KC_5, KC_6, KC_7, KC_8, KC_9, KC_0, KC_MINS, KC_EQL, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS),
         [3] = LAYOUT_ortho_3x12(KC_F1, KC_F2, KC_F3, KC_F4, KC_F5, KC_F6, KC_F7, KC_F8, KC_F9, KC_F10, KC_F11, KC_F12, KC_F1, KC_F2, KC_F3, KC_F4, KC_F5, KC_F6, KC_F7, KC_F8, KC_F9, KC_F10, KC_F11, KC_F12, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS),
-        [4] = LAYOUT_ortho_3x12(KC_BTN1, KC_BTN3, KC_BTN2, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_BTN1, KC_BTN3, KC_BTN2, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS),
+        [4] = LAYOUT_ortho_3x12(KC_BTN1, KC_BTN3, KC_BTN2, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_BTN1, KC_BTN3, KC_BTN2, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS),
 };
 
 bool my_lalt_flag = false;
@@ -36,12 +36,12 @@ const uint16_t PROGMEM lbrc_rbrc_bspc_combo[] = { KC_LBRC, KC_RBRC, COMBO_END};
 const uint16_t PROGMEM quot_nuhs_ent_combo[] = { KC_QUOT, KC_NUHS, COMBO_END};
 const uint16_t PROGMEM lsft_z_lctl_combo[] = { LSFT_T(KC_NUBS), KC_Z, COMBO_END}; 
 const uint16_t PROGMEM slsh_rsft_rctl_combo[] = { KC_SLSH, KC_RSFT, COMBO_END};
-const uint16_t PROGMEM c_v_lalt_combo[] = { LT(4, KC_C), KC_V, COMBO_END};
-const uint16_t PROGMEM m_comm_ralt_combo[] = { KC_M, KC_COMM, COMBO_END};
+const uint16_t PROGMEM c_v_lalt_combo[] = { LT(4, KC_C), LT(4, KC_V), COMBO_END};
+const uint16_t PROGMEM m_comm_ralt_combo[] = { LT(4, KC_M), KC_COMM, COMBO_END};
 const uint16_t PROGMEM z_x_lgui_combo[] = { KC_Z, KC_X, COMBO_END};
 const uint16_t PROGMEM dot_slsh_rgui_combo[] = { KC_DOT, KC_SLSH, COMBO_END};
-const uint16_t PROGMEM v_b_tt_combo[] = { KC_V, KC_B, COMBO_END};
-const uint16_t PROGMEM n_m_tt_combo[] = { KC_N, KC_M, COMBO_END};
+const uint16_t PROGMEM v_b_tt_combo[] = { LT(4, KC_V), KC_B, COMBO_END};
+const uint16_t PROGMEM n_m_tt_combo[] = { KC_N, LT(4, KC_M), COMBO_END};
 const uint16_t PROGMEM b_n_lt_combo[] = { KC_B, KC_N, COMBO_END};
 
 combo_t key_combos[COMBO_COUNT] = {
